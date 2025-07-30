@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body {
+    background-color: #222;
+    color: white;
+    font-family: "Work Sans", sans-serif;
+}
+
+.hide {
+    display: none;
+}
+
+.disabled {
+    cursor: no-drop;
+}
+
+.filled {
+    background-color: #00d300 !important;
+}
+
+.filled:hover {
+    box-shadow: 0 0 10px  #00d300 !important;
+}
+
+::placeholder {
+    text-transform: capitalize;
+    color: #797979;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.head {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0;
+    line-height: 30px;
+    border-bottom: 4px solid #750099;
+}
+
+.head h2 {
+    color: #750099;
+    font-size: 40px;
+    text-shadow: 0 0 10px #750099;
+}
+
+.head p {
+    color: orange;
+    font-size: 30px;
+    margin: 20px 0;
+    font-weight: 600;
+    text-shadow: 0 0 10px orange;
+}
+
+input {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: none;
+    background-color: #111;
+    color: #fff;
+    margin: 4px 0;
+    padding: 4px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+input:focus {
+    background-color: #000;
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+input:hover {
+    cursor: pointer;
+    outline: 2px solid #750099;
+    box-shadow: 0 0 15px #750099;
+}
+
+.price input{
+    width: 20%;
+}
+
+#total {
+    background-color: #b40c00;
+    padding: 7px 2px;
+    border-radius: 4px;
+    margin: 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+#total:hover {
+    box-shadow: 0 0 10px #b40c00;
+    cursor: pointer;
+}
+
+#total::before {
+    content: 'Total:';
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: #750099;
+    cursor: pointer;
+    color: white;
+    text-transform: capitalize;
+    margin: 10px 0;
+    font-weight: 800;
+    border-radius: 25px;
+    transition: .5s;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+button:hover {
+    box-shadow: 0 0 10px #750099;
+    letter-spacing: 1px;
+}
+
+button:active {
+    background-color: transparent;
+    outline: 2px solid #750099;
+}
+
+div.search div.btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.search div.btn button {
+    width: 45%;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    border-top: 4px solid #750099;
+}
+
+table th {
+    text-transform: uppercase;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+td, th {
+    padding: 5px;
+}
+
+th:hover {
+    color: #750099;
+    text-shadow: 0 0 10px #750099;
+}
