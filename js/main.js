@@ -1,4 +1,11 @@
 //! getting the html elements
+let container = document.getElementById("container");
+let switching = document.getElementById("switch");
+let deleted = document.getElementById("deleted");
+let allDeleted = document.getElementById("allDeleted")
+let updated = document.getElementById("updated");
+let switching_content = document.getElementById("switching_content");
+let wrong = document.getElementById("wrong");
 let title = document.getElementById("title");
 let price = document.getElementById("price");
 let taxes = document.getElementById("taxes");
@@ -11,11 +18,14 @@ let submit = document.getElementById("submit");
 let search = document.getElementById("search")
 let tbody = document.getElementById("tbody");
 let deleteAll = document.getElementById("deleteAll");
-//! useful functions
+let empty = document.getElementById("empty");
+let created = document.getElementById("created")
+//!global variables
 let mode = "create";
+let val = '';
 let temp;
-let counter;
-let val;
+let counter = 0;
+//! useful functions
 //todo: get the total
 
 function getTotal() {
@@ -23,17 +33,17 @@ function getTotal() {
   let b = +taxes.value || 0;
   let c = +ads.value || 0;
   let d = +discount.value || 0;
-  return a + b + c - d;
+  return (a + b + c - d) + "    DA";
 }
 
 [price, taxes, ads, discount].forEach((input) => {
   input.onkeyup = () => {
-    total.innerHTML = getTotal();
+    total.value = "Total: " + getTotal();
     if (getTotal()) {
       total.classList.add("filled");
     } else {
       total.classList.remove("filled");
-      total.innerHTML = 0;
+      total.value = "Total: ";
     }
   };
 });
@@ -51,7 +61,7 @@ submit.onclick = function () {
         taxes: taxes.value.trim(),
         ads: ads.value.trim(),
         discount: discount.value.trim(),
-        total: total.innerHTML.trim(),
+        total: total.value.trim() + "   DA",
         count: count.value.trim(),
         category: category.value.trim(),
         display: true
@@ -66,17 +76,27 @@ submit.onclick = function () {
                 }else{
                     dataPro.push(newPro);
                 }
+                created.classList.remove("hide");
+                created.classList.add("menu")
+                container.classList.add("blur")
                 break;
             default:
                 mode = "create";
                 submit.innerHTML = "create";
                 count.classList.remove("hide");
                 dataPro[temp] = newPro;
+                updated.classList.remove("hide");
+                updated.classList.add("menu")
+                container.classList.add("blur")
                 break;
         }
         localStorage.products = JSON.stringify(dataPro);
         clearData();
         showPro();
+    }else{
+            wrong.classList.remove("hide");
+            wrong.classList.add("menu")
+            container.classList.add("blur")
     }
 };
 //todo: clear input
@@ -86,18 +106,21 @@ function clearData() {
   ads.value = "";
   taxes.value = "";
   discount.value = "";
-  total.innerHTML = "0";
+  total.value = "Total: ";
+  total.classList.remove("filled");
   count.value = "";
   category.value = "";
 }
-//todo: read the product
+//todo: show the products
 function showPro() {
     if(dataPro.length){
         deleteAll.innerHTML = `delete all (${dataPro.length})`
         deleteAll.classList.remove("hide");
+        empty.classList.add("hide");
     }
     else{
         deleteAll.classList.add("hide");
+        empty.classList.remove("hide");
     }
     tbody.innerHTML = "";
     for (let i = 0; i < dataPro.length; i++) {
@@ -122,15 +145,24 @@ function showPro() {
 showPro();
 //todo: delete a product
 function deletePro(pro_id) {
-  dataPro.splice(+pro_id, 1);
-  localStorage.products = JSON.stringify(dataPro);
-  showPro();
+    deleted.classList.remove("hide");
+    deleted.classList.add("menu")
+    container.classList.add("blur")
+    dataPro.splice(+pro_id, 1);
+    localStorage.products = JSON.stringify(dataPro);
+    showPro();
 }
 //todo: delete all the products
 deleteAll.onclick = ()=>{
-    for(let i = 0; i < dataPro.length; i++){
+    allDeleted.classList.remove("hide");
+    allDeleted.classList.add("menu")
+    container.classList.add("blur")
+    let i = 0;
+    while(i < dataPro.length){
         if(dataPro[i].display){
             dataPro.splice(i, 1);
+        }else{
+            i++;
         }
     }
     if(dataPro.length){
@@ -149,7 +181,7 @@ function updateData(pro_id){
     ads.value = dataPro[pro_id].ads;
     discount.value = dataPro[pro_id].discount;
     category.value = dataPro[pro_id].category;
-    total.innerHTML = getTotal();
+    total.value = getTotal() + "    DA";
     if(getTotal()) total.classList.add("filled");
     count.classList.add("hide")
     submit.innerHTML = "update";
@@ -161,12 +193,16 @@ function updateData(pro_id){
     })
 }
 //todo: search for a product
-var searchMode;
+var searchMode = "searchTitle";
 
 function getMode(id){
     searchMode = id;
     search.setAttribute('placeholder', document.getElementById(id).innerHTML);
     search.focus();
+    switching.classList.add("menu");
+    switching.classList.remove("hide");
+    container.classList.add("blur");
+    switching_content.innerHTML = `Switched to ${document.getElementById(id).innerHTML} mode!`
 }
 
 search.onkeyup = ()=>{
@@ -182,7 +218,7 @@ function searchPro(value){
                 dataPro[i].display = false;
            }else{
             dataPro[i].display = true;
-            counter++
+            counter++;
         }
     }
     }else{
@@ -196,5 +232,14 @@ function searchPro(value){
         }
     }
     showPro();
-    deleteAll.innerHTML = `delete all (${counter})`
+    deleteAll.innerHTML = `delete all (${counter})`;
 }
+
+document.querySelectorAll("button#ok").forEach(button => {
+    button.onclick = function () {
+        const parent = button.parentElement;
+        parent.classList.add("hide");
+        parent.classList.remove("menu");
+        container.classList.remove("blur"); 
+    };
+})

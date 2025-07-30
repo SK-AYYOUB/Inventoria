@@ -1,45 +1,48 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>Inventoria</title>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="stylesheet/main.css">
-        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    </head>
-    <body>
-        <div class="container">
 
-            <div class="head">
-                <h2>cruds</h1>
+<head>
+    <title>Inventoria</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/main.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container" id="container">
+
+        <div class="head">
+            <h2>welcome to inventoria</h1>
                 <p>products management system</p>
+        </div>
+
+        <div class="inputs">
+            <input type="text" id="title" placeholder="title" maxlength="25">
+            <div class="price">
+                <input type="number" id="price" placeholder="price" maxlength="10">
+                <input type="number" id="taxes" placeholder="taxes" maxlength="10">
+                <input type="number" id="ads" placeholder="ads" maxlength="10">
+                <input type="number" id="discount" placeholder="discount" maxlength="10">
+            </div>
+            <input type="text" id="total" value="total:" disabled>
+            <input type="number" id="count" placeholder="count" maxlength="5">
+            <input type="text" id="category" placeholder="category" maxlength="20">
+            <button id="submit">Create</button>
+        </div>
+
+        <div class="outputs">
+            <div class="search">
+                <input type="text" id="search" placeholder="Search By Title">
+                <div class="btn">
+                    <button id="searchTitle" onclick="getMode(this.id)">search by title</button>
+                    <button id="searchCategory" onclick="getMode(this.id)">search by category</button>
+                </div>
             </div>
 
-            <div class="inputs">
-                <input type="text" id="title" placeholder="title">
-                <div class="price">
-                    <input type="number" id="price" placeholder="price">    
-                    <input type="number" id="taxes" placeholder="taxes">    
-                    <input type="number" id="ads" placeholder="ads">    
-                    <input type="number" id="discount" placeholder="discount">  
-                    <small id="total">0</small>  
-                </div>
-                <input type="number" id="count" placeholder="count">
-                <input type="text" id="category" placeholder="category">
-                <button id="submit">Create</button>
-            </div>
-
-            <div class="outputs">
-                <div class="search">
-                    <input type="text" id="search" placeholder="Search By Title">
-                    <div class="btn">
-                        <button id="searchTitle" onclick="getMode(this.id)">search by title</button>
-                        <button id="searchCategory" onclick="getMode(this.id)">search by category</button>
-                    </div>
-                </div>
-
-                <button id="deleteAll" class = "hide"></button>
-
+            <button id="deleteAll" class="hide"></button>
+            <div class="dataContainer">
                 <table>
                     <tr>
                         <th>id</th>
@@ -53,12 +56,66 @@
                         <th>update</th>
                         <th>delete</th>
                     </tr>
-                    <tbody id="tbody"></tbody>
+                    <tbody id="tbody">
+                    </tbody>
+                    <tr id="empty">
+                        <td colspan="9">no items.</td>
+                    </tr>
                 </table>
             </div>
+        </div>
+    </div>
 
+    <!-- <div class="footer">
+        <h2>Thank you for visiting my website!</h2>
+        <div class="sci">
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+        </div>
+    </div> -->
+
+    <div>
+
+        <div class="hide" id="created">
+            <i class='bx bx-check'></i>
+            <h2>Product created successfully!</h2>
+            <button id="ok">Ok</button>
         </div>
 
-        <script src="js/main.js"></script>
-    </body>
+        <div class="hide" id="updated">
+            <i class='bx bx-check'></i>
+            <h2>Product updated successfully!</h2>
+            <button id="ok">Ok</button>
+        </div>
+
+        <div class="hide" id="deleted">
+            <i class='bx bxs-trash-alt'></i>
+            <h2>The Selected Product removed from the system !</h2>
+            <button id="ok">Ok</button>
+        </div>
+
+        <div class="hide" id="allDeleted">
+            <i class='bx bxs-trash-alt'></i>
+            <h2>All the Selected Product removed from the system !</h2>
+            <button id="ok">Ok</button>
+        </div>
+
+        <div class="hide" id="wrong">
+            <i class='bx bx-error-circle'></i>
+            <h2>Invalid input. Please check your data and try again!</h2>
+            <button id="ok">Ok</button>
+        </div>
+
+        <div class="hide" id="switch">
+            <i class='bx bx-refresh'></i>
+            <h2 id="switching_content">Invalid input. Please check your data and try again!</h2>
+            <button id="ok">Ok</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
 </html>

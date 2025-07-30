@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -14,6 +13,11 @@ body {
 
 .hide {
     display: none;
+}
+
+.blur {
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
 }
 
 .disabled {
@@ -95,16 +99,27 @@ input:hover {
     outline: 2px solid #750099;
     box-shadow: 0 0 15px #750099;
 }
+.price {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
 
 .price input{
-    width: 20%;
+    width: 100%;
+}
+
+input#total {
+    color: white;
 }
 
 #total {
-    background-color: #b40c00;
-    padding: 7px 2px;
+    text-transform: capitalize;
+    font-size: 25px;
+    font-weight: 600;
+    background-color: #7e0800;
+    padding: 0 30px;
     border-radius: 4px;
-    margin: 10px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
@@ -118,18 +133,16 @@ input:hover {
 
 #total:hover {
     box-shadow: 0 0 10px #b40c00;
+    background-color: #b40c00;
+    outline: none;
     cursor: pointer;
-}
-
-#total::before {
-    content: 'Total:';
 }
 
 button {
     width: 100%;
     height: 50px;
     border: none;
-    background-color: #750099;
+    background-color: #540d69;
     cursor: pointer;
     color: white;
     text-transform: capitalize;
@@ -149,6 +162,7 @@ button {
 
 button:hover {
     box-shadow: 0 0 10px #750099;
+    background-color: #750099;
     letter-spacing: 1px;
 }
 
@@ -164,6 +178,11 @@ div.search div.btn {
 
 div.search div.btn button {
     width: 45%;
+}
+
+div.dataContainer {
+    width: 100%;
+    overflow: auto;
 }
 
 table {
@@ -189,4 +208,102 @@ td, th {
 th:hover {
     color: #750099;
     text-shadow: 0 0 10px #750099;
+}   
+
+tr#empty td {
+    color: #bebebe;
+    font-size: 25px;
+    font-weight: 600;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+tr#empty td:hover{
+    text-shadow: 0 0 10px #bebebe;
+}
+
+div.menu {
+    display: grid;
+    place-items: center;
+    padding: 5px 10px;
+    border: 2px solid white;
+    text-align: center;
+    position: fixed;
+    text-transform: capitalize;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    border-radius: 10px;
+    height: 300px;
+    width: 30%;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+div.menu i {
+    margin: 10px;
+    color: #00d300;
+    border: 2px solid #00d300;
+    border-radius: 50%;
+    transform: scale(3);
+    -webkit-transform: scale(3);
+    -moz-transform: scale(3);
+    -ms-transform: scale(3);
+    -o-transform: scale(3);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+div.menu i.bx-error-circle {
+    border: none;
+    color: red;
+    transform: scale(4);
+    -webkit-transform: scale(4);
+    -moz-transform: scale(4);
+    -ms-transform: scale(4);
+    -o-transform: scale(4);
+}
+
+div.menu button {
+    background-color: #d17600;
+    width: 140px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+div.menu button:hover {
+    box-shadow: 0 0 10px #d17600;
+}
+
+div.menu button:active {
+    background: transparent;
+    box-shadow: 0 0 10px #d17600;
+}
+
+div#switch i {
+    border: none;
+}
+
+div#deleted i, div#allDeleted i {
+    color: red;
+    border: none;
+}
+
+button#deleteAll {
+    background-color: #7e0800;
+    
+}
+
+button#deleteAll:hover {
+    background-color: #b40c00;
+    box-shadow: 0 0 10px #b40c00;
 }
