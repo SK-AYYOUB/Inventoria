@@ -198,7 +198,6 @@ var searchMode = "searchTitle";
 function getMode(id){
     searchMode = id;
     search.setAttribute('placeholder', document.getElementById(id).innerHTML);
-    search.focus();
     switching.classList.add("menu");
     switching.classList.remove("hide");
     container.classList.add("blur");
