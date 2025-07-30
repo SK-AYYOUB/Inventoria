@@ -9,6 +9,7 @@ body {
     background-color: #222;
     color: white;
     font-family: "Work Sans", sans-serif;
+    zoom: 90%;
 }
 
 .hide {
@@ -226,6 +227,7 @@ tr#empty td:hover{
 }
 
 div.menu {
+    zoom: 80%;
     display: grid;
     place-items: center;
     padding: 5px 10px;
@@ -239,7 +241,7 @@ div.menu {
     background-color: #000000;
     border-radius: 10px;
     height: 300px;
-    width: 30%;
+    width: 300px;
     transition: .5s;
     -webkit-transition: .5s;
     -moz-transition: .5s;
