@@ -312,6 +312,7 @@ button#deleteAll:hover {
 }
 
 div.footer {
+    zoom: 80%;
     position: relative;
     margin: 10px 0px 0px;
     padding: 10px;

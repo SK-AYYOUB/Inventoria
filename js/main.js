@@ -245,7 +245,7 @@ document.querySelectorAll("button#ok").forEach(button => {
 })
 
 onscroll = function(){
-    if(this.scrollY > 20){
+    if(this.scrollY > 700){
         goTop.classList.remove("hide");
     }
     else {
