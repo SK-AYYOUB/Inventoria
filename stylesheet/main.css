@@ -10,6 +10,7 @@ body {
     color: white;
     font-family: "Work Sans", sans-serif;
     zoom: 90%;
+    overflow-x: hidden;
 }
 
 .hide {
@@ -308,4 +309,122 @@ button#deleteAll {
 button#deleteAll:hover {
     background-color: #b40c00;
     box-shadow: 0 0 10px #b40c00;
+}
+
+div.footer {
+    position: relative;
+    margin: 10px 0px 0px;
+    padding: 10px;
+    width: 100%;
+    background-color: #111;
+    border-top: 2px solid #750099;
+}
+
+div.footer h2 {
+    margin-top: 10px;
+    text-align: center;
+    animation: flash 1s infinite alternate;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    -webkit-animation: flash 1s infinite alternate;
+}
+
+div.footer h4 {
+    width: 70%;
+    margin: 30px auto auto;
+    text-align: center;
+    animation: flash 1s infinite alternate;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    -webkit-animation: flash 1s infinite alternate;
+}
+
+@keyframes flash {
+    to{
+        color: #d17600;
+        text-shadow: 0 0 10px #d17600;
+    }
+}
+
+div.footer p {
+    color: #bebebe;
+    text-align: center;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+div.footer p:hover{
+    text-shadow: 0 0 10px #bebebe;
+}
+
+div.footer i {
+    color: #750099;
+    transform: scale(2);
+    margin-right: 40px;
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+div.footer i:hover {
+    text-shadow: 0 0 10px #0059ff;
+    color: #0059ff;
+}
+
+div.sci {
+    margin: -20px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+button#goTop {
+    position: fixed;
+    background-color: orange;
+    right: 10px;
+    bottom: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+button#goTop:hover {
+    box-shadow: 0 0 10px orange;
+}
+
+button#goTop i {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
 }

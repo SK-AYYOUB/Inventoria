@@ -2,7 +2,7 @@
 let container = document.getElementById("container");
 let switching = document.getElementById("switch");
 let deleted = document.getElementById("deleted");
-let allDeleted = document.getElementById("allDeleted")
+let allDeleted = document.getElementById("allDeleted");
 let updated = document.getElementById("updated");
 let switching_content = document.getElementById("switching_content");
 let wrong = document.getElementById("wrong");
@@ -19,7 +19,8 @@ let search = document.getElementById("search")
 let tbody = document.getElementById("tbody");
 let deleteAll = document.getElementById("deleteAll");
 let empty = document.getElementById("empty");
-let created = document.getElementById("created")
+let created = document.getElementById("created");
+let goTop = document.getElementById("goTop");
 //!global variables
 let mode = "create";
 let val = '';
@@ -242,3 +243,20 @@ document.querySelectorAll("button#ok").forEach(button => {
         container.classList.remove("blur"); 
     };
 })
+
+onscroll = function(){
+    if(this.scrollY > 20){
+        goTop.classList.remove("hide");
+    }
+    else {
+        goTop.classList.add("hide");
+    }
+}
+
+goTop.onclick = function(){
+    scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    });
+}
