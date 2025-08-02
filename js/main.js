@@ -21,6 +21,7 @@ let deleteAll = document.getElementById("deleteAll");
 let empty = document.getElementById("empty");
 let created = document.getElementById("created");
 let goTop = document.getElementById("goTop");
+let footer = document.getElementById("footer");
 //!global variables
 let mode = "create";
 let val = '';
@@ -78,8 +79,9 @@ submit.onclick = function () {
                     dataPro.push(newPro);
                 }
                 created.classList.remove("hide");
-                created.classList.add("menu")
-                container.classList.add("blur")
+                created.classList.add("menu");
+                container.classList.add("blur");
+                footer.classList.add("blur");
                 break;
             default:
                 mode = "create";
@@ -87,8 +89,9 @@ submit.onclick = function () {
                 count.classList.remove("hide");
                 dataPro[temp] = newPro;
                 updated.classList.remove("hide");
-                updated.classList.add("menu")
-                container.classList.add("blur")
+                updated.classList.add("menu");
+                container.classList.add("blur");
+                footer.classList.add("blur");
                 break;
         }
         localStorage.products = JSON.stringify(dataPro);
@@ -96,8 +99,9 @@ submit.onclick = function () {
         showPro();
     }else{
             wrong.classList.remove("hide");
-            wrong.classList.add("menu")
-            container.classList.add("blur")
+            wrong.classList.add("menu");
+            container.classList.add("blur");
+            footer.classList.add("blur");
     }
 };
 //todo: clear input
@@ -156,8 +160,9 @@ function deletePro(pro_id) {
 //todo: delete all the products
 deleteAll.onclick = ()=>{
     allDeleted.classList.remove("hide");
-    allDeleted.classList.add("menu")
-    container.classList.add("blur")
+    allDeleted.classList.add("menu");
+    container.classList.add("blur");
+    footer.classList.add("blur");
     let i = 0;
     while(i < dataPro.length){
         if(dataPro[i].display){
@@ -202,7 +207,9 @@ function getMode(id){
     switching.classList.add("menu");
     switching.classList.remove("hide");
     container.classList.add("blur");
+    footer.classList.add("blur");
     switching_content.innerHTML = `Switched to ${document.getElementById(id).innerHTML} mode!`
+    searchPro(val);
 }
 
 search.onkeyup = ()=>{
@@ -232,15 +239,22 @@ function searchPro(value){
         }
     }
     showPro();
-    deleteAll.innerHTML = `delete all (${counter})`;
+    if(counter > 0){
+        deleteAll.innerHTML = `delete all (${counter})`;
+    }else{
+        deleteAll.innerHTML = `delete all (${counter})`;
+        empty.classList.remove("hide");
+    }
 }
 
+//todo: scroll function with its button
 document.querySelectorAll("button#ok").forEach(button => {
     button.onclick = function () {
         const parent = button.parentElement;
         parent.classList.add("hide");
         parent.classList.remove("menu");
-        container.classList.remove("blur"); 
+        container.classList.remove("blur");
+        footer.classList.remove("blur"); 
     };
 })
 
